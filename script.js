@@ -74,7 +74,7 @@ let setRampApr = (value) => {
 //************* */
 let setFee = (value) => {
   const fee = document.querySelector('#fee');
-  fee.textContent = Ramp.fees = parseInt(value);
+  fee.textContent = Ramp.fees = parseFloat(value);
   Ramp.calculate();
 }
 
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
   const fee = document.querySelector('#fee_textbox');
   const fee_display = document.querySelector('#fee');
-  Ramp.fees = fee_display.textContent = parseInt(fee.value);
+  Ramp.fees = fee_display.textContent = parseFloat(fee.value);
 
   const lp_apr = document.querySelector('#lp_apr_textbox');
   const lp_apr_display = document.querySelector('#lp_apr');

@@ -1,39 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <header>
-    <meta charset="UTF-8"> 
-    <script type="text/javascript" src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
-  </header>
-  <body>
-    <div class="container">
-      <div class="container_title">Number of days to hodl amount</div>
-      <div>
-        <input type="text" size="4" value="365" id="holding_days_textbox" onchange="setHoldingDays(this.value)" /> 
-      </div>
+<header>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
+</header>
+
+<body>
+  <div class="container">
+    <div class="input_container">
+    <div class="container_title">Interests</div>
+      <label for="lp_interest_textox">LP interest: </label>
+      <input type="text" size="4" min="0" class="interest_textbox" defaultValue="35" value="35" id="lp_apr_textbox"
+        onchange="setLpApr(this.value)" />
+      <label for="ramp_interest_textox">Ramp interest: </label>
+      <input type="text" size="4" min="0" class="interest_textbox" defaultValue="36" value="36" id="ramp_apr_textbox"
+        onChange="setRampApr(this.value)" />
     </div>
-    <div class="container">
+  </div>
+  <div class="container">
+    <div class="input_container">
+      <div class="container_title">Transaction fee (USD)</div>
+      <input type="text" size="4" value="2" id="fee_textbox" onChange="setFee(this.value)" />
+    </div>
+  </div>
+  <div class="container">
+    <div class="input_container">
+      <div class="container_title">Number of days to hold amount</div>
+      <input type="text" size="4" value="365" id="holding_days_textbox" onchange="setHoldingDays(this.value)" />
+    </div>
+  </div>
+  <div class="container">
+    <div class="input_container">
       <div class="container_title">Claim interval in days</div>
-      <div>
-        <input type="range" min="1" max="100" value="30" class="slider" id="claim_interval_slider" onchange="setClaimIntervalFromSlider(this.value)" />
-      </div>
-      <div>
-        <input type="text" maxlength="4" size="4" id="claim_interval_textbox" value="30" onChange="setClaimIntervalFromText(this.value)" />
-      </div>
+      <input type="range" min="1" max="100" value="30" class="slider" id="claim_interval_slider"
+        onchange="setClaimIntervalFromSlider(this.value)" />
+      <input type="text" maxlength="4" size="4" id="claim_interval_textbox" value="30"
+        onChange="setClaimIntervalFromText(this.value)" />
     </div>
-    <div></div>
-    <div class="container">
-      <div class="container_title">Amount</div>
-      <div>
-        <input type="range" min="1" max="100000" defaultValue="1000" value="1000" class="slider" id="amount_slider" onchange="setAmountFromSlider(this.value)" /> 
-      </div>
-      <div>
-        <input type="text" size="4" id="amount_textbox" value="1000" onChange="setAmountFromText(this.value)" />
-      </div>
+  </div>
+  <div class="container">
+    <div class="input_container">
+      <div class="container_title">Amount (USD)</div>
+      <input type="range" min="1" max="100000" defaultValue="1000" value="1000" class="slider" id="amount_slider"
+        onchange="setAmountFromSlider(this.value)" />
+      <input type="text" size="4" id="amount_textbox" value="1000" onChange="setAmountFromText(this.value)" />
     </div>
-    <div class="result">A $2 transaction fee is taken into account for each claiming and staking move. 
-      Starting with <span id="amount">100</span> USD, with 40% interests and claiming every <span id="claim_interval" class="claim_interval">30</span> days,
-       the profit after holding amount for <span id="holding_days">365</span> days is: <span class="profit" id="profit">x</span></div> 
-    
-  </body>
+  </div>
+  <div class="result">A <span id="fee">2</span> USD transaction fee is taken into account for each claiming and staking
+    transaction.</br>
+    Starting with <span id="amount">1000</span> USD, with <span id="lp_apr">35</span>% LP APR, <span
+      id="ramp_apr">36</span>% Ramp APR and claiming every
+    <span id="claim_interval" class="claim_interval">30</span> days, the profit earned on regularly restaking the LP interest
+    and holding the amount for <span id="holding_days">365</span> days is: <span class="profit" id="profit">x</span>
+  </div>
+
+</body>
+
 </html>

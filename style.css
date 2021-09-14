@@ -24,11 +24,17 @@ input[type=range] {
 
 .container_title {
   margin: auto;
+  font-weight: 900;
+  width: 420px;
+  text-align: center;
 }
 
-.container div {
-  width: 360px;
+
+.input_container {
+  width: 420px;
   text-align: center;
+  border: 1px solid #333;
+  box-shadow: 3px 8px #333;
 }
 
 .result {
@@ -40,4 +46,7 @@ input[type=range] {
   font-weight: 900;
 }
 
+.interest_textbox {
+  float: right;
+}
 

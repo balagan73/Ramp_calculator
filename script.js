@@ -53,8 +53,28 @@ let setAmountFromText = (value) => {
 //************* */
 let setHoldingDays = (value) => {
   const holding_days = document.querySelector('#holding_days');
-  holding_days.textContent = value;
-  Ramp.holding_days = parseInt(value);
+  holding_days.textContent = Ramp.holding_days = parseInt(value);
+  Ramp.calculate();
+}
+
+//************* */
+let setLpApr = (value) => {
+  const lp_apr = document.querySelector('#lp_apr');
+  lp_apr.textContent = Ramp.lp_apr = parseInt(value);
+  Ramp.calculate();
+}
+
+//************* */
+let setRampApr = (value) => {
+  const ramp_apr = document.querySelector('#ramp_apr');
+  ramp_apr.textContent = Ramp.ramp_apr = parseInt(value);
+  Ramp.calculate();
+}
+
+//************* */
+let setFee = (value) => {
+  const fee = document.querySelector('#fee');
+  fee.textContent = Ramp.fees = parseInt(value);
   Ramp.calculate();
 }
 
@@ -92,6 +112,18 @@ document.addEventListener("DOMContentLoaded", function(){
   const amount = document.querySelector('#amount_textbox');
   const amount_display = document.querySelector('#amount');
   Ramp.amount = amount_display.textContent = parseInt(amount.value);
+
+  const fee = document.querySelector('#fee_textbox');
+  const fee_display = document.querySelector('#fee');
+  Ramp.fees = fee_display.textContent = parseInt(fee.value);
+
+  const lp_apr = document.querySelector('#lp_apr_textbox');
+  const lp_apr_display = document.querySelector('#lp_apr');
+  Ramp.lp_apr = lp_apr_display.textContent = parseInt(lp_apr.value);
+
+  const ramp_apr = document.querySelector('#ramp_apr_textbox');
+  const ramp_apr_display = document.querySelector('#ramp_apr');
+  Ramp.ramp_apr = ramp_apr_display.textContent = parseInt(ramp_apr.value);
   
   Ramp.calculate();
 });
